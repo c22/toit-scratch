@@ -67,7 +67,7 @@ class ES8388:
         // Set PdnIbiasgen (ibiasgen power down) off
         reg = registers_.read_u8 REG_CHIP_CONTROL_2
         reg &= ~0b0000_1100
-        print "Writing 0x$(%02x reg) to register $REG_CHIP_CONTROL_2"
+        print "Writing 0x$(%02X reg) to register $REG_CHIP_CONTROL_2"
         registers_.write_u8 REG_CHIP_CONTROL_2 reg
 
         // Set all chip power management states to 0 (power up/normal)
@@ -83,7 +83,7 @@ class ES8388:
         */
         reg = registers_.read_u8 REG_ADC_POWER_MANAGEMENT
         reg &= ~0b1111_0100
-        print "Writing 0x$(%02x reg) to register $REG_ADC_POWER_MANAGEMENT"
+        print "Writing 0x$(%02X reg) to register $REG_ADC_POWER_MANAGEMENT"
         registers_.write_u8 REG_ADC_POWER_MANAGEMENT reg
 
         /*
@@ -98,20 +98,20 @@ class ES8388:
         reg = registers_.read_u8 REG_DAC_POWER_MANAGEMENT
         reg &= ~0b1111_1100
         reg |= 0b0011_1100
-        print "Writing 0x$(%02x reg) to register $REG_DAC_POWER_MANAGEMENT"
+        print "Writing 0x$(%02X reg) to register $REG_DAC_POWER_MANAGEMENT"
         registers_.write_u8 REG_DAC_POWER_MANAGEMENT reg
 
         // Set slave serial port mode
         reg = registers_.read_u8 REG_MASTER_MODE_CONTROL
         reg &= ~0b1000_0000
-        print "Writing 0x$(%02x reg) to register $REG_MASTER_MODE_CONTROL"
+        print "Writing 0x$(%02X reg) to register $REG_MASTER_MODE_CONTROL"
         registers_.write_u8 REG_MASTER_MODE_CONTROL reg
 
         // Set ADCWL (ADC word length) to 16-bits
         reg = registers_.read_u8 REG_ADC_CONTROL_4
         reg &= ~0b0001_1100
         reg |= 0b0000_1100
-        print "Writing 0x$(%02x reg) to register $REG_ADC_CONTROL_4"
+        print "Writing 0x$(%02X reg) to register $REG_ADC_CONTROL_4"
         registers_.write_u8 REG_ADC_CONTROL_4 reg
 
     off:
