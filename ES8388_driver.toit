@@ -9,30 +9,50 @@ class ES8388:
 
     // Defaults to 0b0000_0110
     static REG_CHIP_CONTROL_1 ::= 0
-
     // Defaults to 0b0101_1100
     static REG_CHIP_CONTROL_2 ::= 1
-
     // Defaults to 0b1100_0011
     static REG_CHIP_POWER_MANAGEMENT ::= 2
-
     // Defaults to 0b1111_1100
     static REG_ADC_POWER_MANAGEMENT ::= 3
-
     // Defaults to 0b1100_0000
     static REG_DAC_POWER_MANAGEMENT ::= 4
-
     // Defaults to 0b1000_0000
     static REG_MASTER_MODE_CONTROL ::= 8
-
+    // Defaults to 0b0000_0000
+    static REG_ADC_CONTROL_1 ::= 9
     // Defaults to 0b0000_0000
     static REG_ADC_CONTROL_2 ::= 10
-
+    // Defaults to 0b0000_0010
+    static REG_ADC_CONTROL_3 ::= 11
     // Defaults to 0b0000_0000
     static REG_ADC_CONTROL_4 ::= 12
-
+    // Defaults to 0b0000_0110
+    static REG_ADC_CONTROL_5 ::= 13
+    // Defaults to 0b1100_0000
+    static REG_ADC_CONTROL_8 ::= 16
+    // Defaults to 0b1100_0000
+    static REG_ADC_CONTROL_9 ::= 17
+    // Defaults to 0b0000_0000
+    static REG_DAC_CONTROL_1 ::= 23
+    // Defaults to 0b0000_0000
+    static REG_DAC_CONTROL_2 ::= 24
     // Defaults to 0b0010_0010
-    static REG_DAC_CONTROL3 ::= 25
+    static REG_DAC_CONTROL_3 ::= 25
+    // Defaults to 0b1100_0000
+    static REG_DAC_CONTROL_4 ::= 26
+    // Defaults to 0b1100_0000
+    static REG_DAC_CONTROL_5 ::= 27
+    // Defaults to 0b0000_0000
+    static REG_DAC_CONTROL_16 ::= 38
+    // Defaults to 0b0011_1000
+    static REG_DAC_CONTROL_17 ::= 39
+    // Defaults to 0b0011_1000
+    static REG_DAC_CONTROL_20 ::= 42
+    // Defaults to 0b0000_0000
+    static REG_DAC_CONTROL_21 ::= 43
+    // Defaults to 0b0000_0000
+    static REG_DAC_CONTROL_23 ::= 45
 
     registers_/serial.Registers
     
