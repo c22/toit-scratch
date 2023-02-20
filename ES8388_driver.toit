@@ -114,6 +114,12 @@ class ES8388:
         print "Writing 0x$(%02X reg) to register $REG_ADC_CONTROL_4"
         registers_.write_u8 REG_ADC_CONTROL_4 reg
 
+        // Set LADCVOL and RADCVOL to -4db (-0.5db x 8)
+        print "Writing 0x$(%02X reg) to register $REG_ADC_CONTROL_8"
+        registers_.write_u8 REG_ADC_CONTROL_8 8
+        print "Writing 0x$(%02X reg) to register $REG_ADC_CONTROL_9"
+        registers_.write_u8 REG_ADC_CONTROL_9 8
+
     off:
 
 main:
