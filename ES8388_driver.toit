@@ -22,6 +22,9 @@ class ES8388:
     // Defaults to 0b1100_0000
     static REG_DAC_POWER_MANAGEMENT ::= 4
 
+    // Defaults to 0b1000_0000
+    static REG_MASTER_MODE_CONTROL ::= 8
+
     // Defaults to 0b0000_0000
     static REG_ADC_CONTROL_2 ::= 10
 
@@ -70,6 +73,12 @@ class ES8388:
         reg &= ~0b1111_1100
         reg |= 0b0011_1100
         registers_.write_u8 REG_DAC_POWER_MANAGEMENT reg
+
+        // Set slave serial port mode
+        reg = registers_.read_u8 REG_MASTER_MODE_CONTROL
+        reg &= ~0b1000_0000
+        print "Writing 0x$(%02x reg) to register $REG_MASTER_MODE_CONTROL"
+        registers_.write_u8 REG_MASTER_MODE_CONTROL reg
 
         // Set ADCWL (ADC word length) to 16-bits
         reg = registers_.read_u8 REG_ADC_CONTROL_4
