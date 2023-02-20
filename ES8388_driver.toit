@@ -40,15 +40,19 @@ class ES8388:
         registers_ = device.registers
 
     on:
+        print "Initalizing ES8388 codec..."
         reg/int := ?
+
         // Set PdnAna (entire analog power down) off
         // Set PdnIbiasgen (ibiasgen power down) off
         reg = registers_.read_u8 REG_CHIP_CONTROL_2
         reg &= ~0b0000_1100
+        print "Writing 0x$(%02x reg) to register $REG_CHIP_CONTROL_2"
         registers_.write_u8 REG_CHIP_CONTROL_2 reg
 
         // Set all chip power management states to 0 (power up/normal)
-        registers_.write_u8 REG_CHIP_POWER_MANAGEMENT 0x0
+        print "Writing 0x00 to register $REG_CHIP_POWER_MANAGEMENT"
+        registers_.write_u8 REG_CHIP_POWER_MANAGEMENT 0x00
 
         /*
          Set PdnAINL (left analog input power down) off
@@ -59,6 +63,7 @@ class ES8388:
         */
         reg = registers_.read_u8 REG_ADC_POWER_MANAGEMENT
         reg &= ~0b1111_0100
+        print "Writing 0x$(%02x reg) to register $REG_ADC_POWER_MANAGEMENT"
         registers_.write_u8 REG_ADC_POWER_MANAGEMENT reg
 
         /*
@@ -69,9 +74,11 @@ class ES8388:
          Set LOUT2 (left output 2) on
          Set ROUT2 (right output 2) on
         */
+        registers_.write_u8 0b1100_0000 REG_DAC_POWER_MANAGEMENT
         reg = registers_.read_u8 REG_DAC_POWER_MANAGEMENT
         reg &= ~0b1111_1100
         reg |= 0b0011_1100
+        print "Writing 0x$(%02x reg) to register $REG_DAC_POWER_MANAGEMENT"
         registers_.write_u8 REG_DAC_POWER_MANAGEMENT reg
 
         // Set slave serial port mode
@@ -84,6 +91,7 @@ class ES8388:
         reg = registers_.read_u8 REG_ADC_CONTROL_4
         reg &= ~0b0001_1100
         reg |= 0b0000_1100
+        print "Writing 0x$(%02x reg) to register $REG_ADC_CONTROL_4"
         registers_.write_u8 REG_ADC_CONTROL_4 reg
 
     off:
